@@ -1,0 +1,21 @@
+{
+  "name": "Friend_Finder",
+  "version": "1.0.0",
+  "description": ":love_letter:**Friend Finder**, a compatibility-based dataing app, is a full-stack site that will take in results from user's surveys, and compare the answers between other users' responses. After the comparisons are made, the app will then display the name and picture of the user with the best overall match! Happy Matching!!! <br> <br>We hope that you find the L O V E :heart: C O N N E C T I O N that you are searching for!!!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilalekat/Friend_Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilalekat/Friend_Finder/issues"
+  },
+  "homepage": "https://github.com/lilalekat/Friend_Finder#readme"
+}
