@@ -42,6 +42,8 @@ module.exports = function (app) {
                 }
             }
         }
+        
+        console.log(loveMatch);
 
         //Pushing new love interests data to the db//
         loveMatch.push(loveSeeker);

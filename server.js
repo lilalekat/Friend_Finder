@@ -21,4 +21,18 @@ app.listen(PORT, function() {
 
 });
 
+// function formValidation() {
+
+//     var yourName = document.getElementById("yourName");
+
+//     if (yourName.nodeValue.length == 0) {
+//         document.getElementById("p1").innerText = "All Fields Are Mandatory";
+//         yourName.focus();
+//         return false;
+//     }
+//     console.log("Form Validation Complete");
+// };
+
+
+
 

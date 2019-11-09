@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8">
@@ -15,6 +14,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
+        <script defer src="server.js"></script>
         <title>Friend Finder</title>
 </head>
 
@@ -27,143 +27,157 @@
                 <br>
                 <p class="lead">Tell Your Love Match a Little Bit About You. Then fill out the Survey to find your LOVE
                         Match!</p>
-                <div class="form-group" form name="yourName">
-                        <label class="col-form-label" for="inputDefault">Your Name👇</label>
-                        <input type="text" id="name" class="form-control" placeholder="Your Name Goes Here" required>
-                </div>
-                <div class="form-group">
+                <!-- About Love Seeker Section -->
+                <!-- Front End Form Validation -->
+                <div id="form-group">
+                        <form onsubmit='return formValidation()'>
+                                <label class="col-form-label">Your Name👇</label>
+                                <input id="yourName" type="text" class="form-control" placeholder="Your Name Goes Here"
+                                        required>
+                                <p id="p1"></p>
+                                <!-- This segment displays the validation rule for name -->
+                                <!-- <input id="submit" type="submit" value="Check Form"> -->
+
+        </div>
+                <div class="form-group" id="photoUpload">
                         <label for="exampleInputFile">Upload Your Photo Here👇</label>
-                        <input type="file" id="photo" class="form-control-file" aria-describedby="fileHelp">
-                        <small id="fileHelp" class="form-text text-muted" required>Please upload an AWESOME photo of yourself!
+                        <input type="file" id="photo" class="form-control-file" aria-describedby="fileHelp" required>
+                        <small id="fileHelp" class="form-text text-muted">Please upload an AWESOME photo of
+                                yourself!
                                 You Cutie😍Patootie You!</small>
                 </div>
                 <hr>
                 <br>
                 <!-- Survey Questions -->
-                <div class="form-group">
-                        <h4><strong>💜When I receive a call to Adventure, I plug my ears</strong></h4>
-                        <select data-placeholder="" class="form-control" id="q1">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
+                <div id="surveyQuestions">
+                        <div class="form-group">
+                                <h4><strong>💜When I receive a call to Adventure, I plug my ears</strong></h4>
+                                <select data-placeholder="" class="form-control" id="q1" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜My Preferred Outfit is a Cape-Backed Coat</strong></h4>
+                                <select data-placeholder="" class="form-control" id="q2" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜If I had to Fight a Villian, it would be the Pillsbury Dough Boy</strong>
+                                </h4>
+                                <select data-placeholder="" class="form-control" id="q3" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <div class="form-group">
+                                <h4><strong>💜My favorite hat is the hood of a cloak</strong></h4>
+                                <select data-placeholder="" class="form-control" id="q4" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜Princess Leia is my all-time favorite character</strong></h4>
+                                <select data-placeholder="" class="form-control" id="q5" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜If I had a sidekick, I'd choose Snowy the Dog</strong></h4>
+                                <select class="form-control" id="q6" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜If I was in a tooth-grinding fight, my weapon of choice would be my
+                                                BRILLIANT
+                                                mind</strong></h4>
+                                <select class="form-control" id="q7" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜I fight injustice to keep from getting bored</strong></h4>
+                                <select class="form-control" id="q8" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜My ideal love interest enjoys playing Legend of Zelda</strong></h4>
+                                <select class="form-control" id="q9" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                                <h4><strong>💜Jimmy Neutron was my favorite cartoon growing up</strong></h4>
+                                <select class="form-control" id="q10" required>
+                                        <option value="">Choose One to Get Closer to Finding Your Love</option>
+                                        <option value="1">Strongly Agree</option>
+                                        <option value="2">Agree</option>
+                                        <option value="3">Neither Agree nor Disagree</option>
+                                        <option value="4">Disagree</option>
+                                        <option value="5">Strongly Disagree</option>
+                                </select>
+                        </div>
+                        <br>
+                        <br>
+                        <!-- Submit Button -->
+                        <input id="submitSurvey" class="btn btn-primary btn-lg" type="submit" value="Match💘Me"></input>
+                        <!-- <button id="submitSurvey" input id="submit" class="btn btn-primary btn-lg" text-align="center">Match💘Me</button> -->
+                        </form>
                 </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜My Preferred Outfit is a Cape-Backed Coat</strong></h4>
-                        <select data-placeholder="" class="form-control" id="q2">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜If I had to Fight a Villian, it would be the Pillsbury Dough Boy</strong></h4>
-                        <select data-placeholder="" class="form-control" id="q3">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <div class="form-group">
-                        <h4><strong>💜My favorite hat is the hood of a cloak</strong></h4>
-                        <select data-placeholder="" class="form-control" id="q4">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜Princess Leia is my all-time favorite character</strong></h4>
-                        <select data-placeholder="" class="form-control" id="q5">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜If I had a sidekick, I'd choose Snowy the Dog</strong></h4>
-                        <select class="form-control" id="q6">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜If I was in a tooth-grinding fight, my weapon of choice would be my BRILLIANT
-                                        mind</strong></h4>
-                        <select class="form-control" id="q7">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜I fight injustice to keep from getting bored</strong></h4>
-                        <select class="form-control" id="q8">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜My ideal love interest enjoys playing Legend of Zelda</strong></h4>
-                        <select class="form-control" id="q9">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <div class="form-group">
-                        <h4><strong>💜Jimmy Neutron was my favorite cartoon growing up</strong></h4>
-                        <select class="form-control" id="q10">
-                                <option value="">Choose One to Get Closer to Finding Your Love</option>
-                                <option value="1">Strongly Agree</option>
-                                <option value="2">Agree</option>
-                                <option value="3">Neither Agree nor Disagree</option>
-                                <option value="4">Disagree</option>
-                                <option value="5">Strongly Disagree</option>
-                        </select>
-                </div>
-                <br>
-                <br>
-                <!-- Submit Button -->
-                <a class="btn btn-primary btn-lg" text-align="center" href="#" role="button" id="submitSurvey">Match
-                        💘Me</a>
         </div>
         </div>
         <!-- Modal PopUp with Love Match -->
@@ -181,8 +195,6 @@
                                         <img id="matchPhoto" src="" alt="">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
                                 </div>
                         </div>
                 </div>
@@ -191,21 +203,38 @@
                 <a href="/api/friends" class="API-link">API Friends List | </a>
                 <a href="https://github.com/lilalekat/Friend_Finder" class="Github-link">GitHub Repo</a>
         </div>
-<!-- On Click Submit Function as well as Form Validation -->
-<script type="text/javascript">
-$("#submitSurvey").on("click", function() {
-        event.preventDefault();
+        <!-- On Click Submit Function as well as Form Validation -->
+        <script type="text/javascript">
+                $("#submitSurvey").on("click", function (event) {
+                        event.preventDefault();
 
-        function validateForm() {
-  var x = document.forms["form-group"]["form-control"].value;
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
-  }
-}    
+                        $("#afterSubmit").css("display", "flex");
 
-})
-</script>
+                        if ("#yourName" === "") {
+                                document.getElementbyId('#yourName').innerText = "* All Fields are Mandatory *";
+                                yourName.focus();
+                                return false;
+                        }
+
+                })
+                // On Click Close Function for Modal// 
+                $(".close, #loveMatch").on("click", function() {
+                        $("#afterSubmit").css("display", "none");
+
+                        $("html, body").css({
+                                overFlow: 'auto',
+                                height: 'auto'
+                        });
+                });
+                
+                //
+                var loveSeekerData = {
+                        name: $("#yourName").val.trim()
+                }
+
+        
+        </script>
+        <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 </body>
 
 </html>
